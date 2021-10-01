@@ -21,6 +21,7 @@ export const SelectField = ({
     <TextField
       className={classes.drawerInput}
       variant="outlined"
+      name={name}
       id={id}
       value={value}
       onChange={onChange}
