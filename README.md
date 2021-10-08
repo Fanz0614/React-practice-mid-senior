@@ -21,7 +21,7 @@ cd rea_test <br>
 npm install <br>
 npm start <br>
 
-Things need to be improved
+Things that still working
 ---------
 1. add custom hooks
 2. refactory using type script
