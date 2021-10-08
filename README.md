@@ -27,4 +27,4 @@ Things that still working
 2. refactory using type script
 3. finish sorting feature 
 4. optimize performance 
-5. any new interesting ideas
+5. any other interesting ideas
