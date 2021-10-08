@@ -11,6 +11,7 @@ Technology stack
 | Redux     |
 | React-redux     | 
 | Redux-toolkit     | 
+| Cypress     | 
 | material/UI    | 
 
 
