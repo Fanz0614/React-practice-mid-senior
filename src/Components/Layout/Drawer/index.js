@@ -1,15 +1,16 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
+
 import Drawer from '@material-ui/core/Drawer';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+
 import { InputField } from '../../Shared/TextField';
 import { CancelButton } from '../../Shared/Button/Cancel';
-import { SubmitButton } from '../../Shared/Button/Submit';
-import './style.css';
 
 const drawerWidth = 800;
 const useStyles = makeStyles((theme) => ({
@@ -24,13 +25,13 @@ const useStyles = makeStyles((theme) => ({
     margin: 20,
   },
 }));
-export default function PersistentDrawerRight({
+const PersistentDrawerRight = ({
   props,
   handleDrawerClose,
   onHandleCancel,
   handleDrawerInput,
   drawerName,
-}) {
+}) => {
   const classes = useStyles();
   const theme = useTheme();
   const drawerData = useSelector((state) => state.details);
@@ -43,7 +44,7 @@ export default function PersistentDrawerRight({
           return (
             <div>
               <InputField
-              id={`drawerinput-${key}`}
+                id={`drawerinput-${key}`}
                 key={index}
                 className={classes.drawerInput}
                 label={items.locale}
@@ -52,7 +53,6 @@ export default function PersistentDrawerRight({
                 value={items.value}
                 onChange={(e) => handleDrawerInput(key, items.locale, e)}
               />
-
               <CancelButton
                 className="cancelbutton"
                 onClick={() => onHandleCancel(key)}
@@ -65,7 +65,6 @@ export default function PersistentDrawerRight({
     });
   };
 
-  //点 cancel inputvalue清0，
   return (
     <>
       <Drawer
@@ -88,10 +87,16 @@ export default function PersistentDrawerRight({
         </div>
         <Divider />
         {drawerInputFiled()}
-        <div>
-          <SubmitButton />
-        </div>
       </Drawer>
     </>
   );
-}
+};
+
+PersistentDrawerRight.propTypes = {
+  handleDrawerClose: PropTypes.bool,
+  onHandleCancel: PropTypes.bool,
+  handleDrawerInput: PropTypes.any,
+  drawerName: PropTypes.string,
+};
+
+export default PersistentDrawerRight;

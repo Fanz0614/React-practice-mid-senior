@@ -1,11 +1,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
+
 import { Typography } from '@material-ui/core';
 import AdjustIcon from '@material-ui/icons/Adjust';
+import './style.css';
+
 import { InputField } from '../../Shared/TextField/index';
 import PersistentDrawerRight from '../Drawer/index';
-import { CancelButton } from '../../Shared/Button/Cancel';
-import './style.css';
+
 export const MainForm = ({
   open,
   handleDrawerOpen,
@@ -18,17 +21,18 @@ export const MainForm = ({
   onHandleCancel,
 }) => {
   const formData = useSelector((state) => state.details);
-
   const newObjectEntries = Object.entries(formData);
 
   const FormInput = () => {
     return newObjectEntries.map(([key, value]) => {
-      //console.log(value, '+++++++++++');
       const findByLocale = value.find((obj) => obj.locale === defaultLocale);
-     // console.log(findByLocale);
       return (
         <div className="body">
-          <Typography variant="h4" className="title">
+          <Typography
+            variant="h4"
+            className="title"
+            style={{ marginTop: '15px' }}
+          >
             {key}
           </Typography>
           <InputField
@@ -41,6 +45,7 @@ export const MainForm = ({
           <AdjustIcon
             className="openicon"
             id={`${key}-button`}
+            style={{ cursor: 'pointer' }}
             onClick={() => handleDrawerOpen(key)}
           />
         </div>
@@ -63,4 +68,16 @@ export const MainForm = ({
       </form>
     </>
   );
+};
+
+MainForm.propTypes = {
+  open: PropTypes.bool,
+  handleDrawerOpen: PropTypes.func,
+  handleDrawerClose: PropTypes.func,
+  handleFormInput: PropTypes.func,
+  defaultState: PropTypes.string,
+  handleDrawerInput: PropTypes.func,
+  drawerName: PropTypes.string,
+  defaultLocale: PropTypes.string,
+  onHandleCancel: PropTypes.func,
 };

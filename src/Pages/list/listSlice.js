@@ -17,7 +17,6 @@ export const listSlice = createSlice({
   initialState,
   reducers: {
     addOne(state, action) {
-      //debugger;
       if (action.payload.order === state.value.length - 1) {
         state.value = [
           ...state.value,
@@ -25,16 +24,13 @@ export const listSlice = createSlice({
         ];
       } else {
         const addValue = state.value.map((items) => {
-          //debugger;
           if (items.order <= action.payload.order) {
             return items;
           } else {
             return { ...items, order: items.order + 1 };
           }
         });
-        //debugger;
         addValue.push({ ...action.payload, order: action.payload.order + 1 });
-
         addValue.sort((a, b) => {
           return a.order - b.order;
         });
@@ -53,9 +49,10 @@ export const listSlice = createSlice({
       });
       state.value = findResultByFilter;
     },
+    //resort logic
     resort(state, action) {
-      const items = state.value;
-      const item = items[action.payload.order];
+      //const items = state.value;
+      //const item = items[action.payload.order];
       // for (var i = 0; i < state.value.length; i++) {
       //   if (state.value[i].order === state.value.length - 1) {
       //     state.value[i].order -= 1;
@@ -67,19 +64,6 @@ export const listSlice = createSlice({
       //     state.value = items;
       //   }
       // }
-
-
-
-      // for (var i=0; i<state.value.length; i++){
-      //   if(action.payload.order===0 && action.payload.diff==='-1'){
-      //     if(state.value[i]===0){
-      //       return{...state.value,order:state.value.length-1};
-      //     }else{
-      //       return{...state.value,order:i-1};
-      //     }
-      //   }
-      // }
-
       if (action.payload.order === 0 && action.payload.diff === '-1') {
         console.log(1)
         const filterUpArr = state.value.map((items) => {
@@ -116,21 +100,8 @@ export const listSlice = createSlice({
           state.value=filterDownArr
         }
       }
-
-      // if(action.payload.order===state.value.length-1){
-      //   action.payload.order-=1
-      // }else if(action.payload.order===0){
-
-      //   action.payload.order=state.value.length-1
-      // }
     },
   },
 });
 
 export const { addOne, resort, handleTag } = listSlice.actions;
-
-//index->find->change value
-
-//assignment->https://www.cypress.io/
-//https://docs.cypress.io/guides/getting-started/installing-cypress
-//create pr(pull request)

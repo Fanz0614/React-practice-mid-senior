@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+
 import Grid from '@material-ui/core/Grid';
+
 import { MainForm } from '../../Components/Layout/Form/index';
 import { handleForm } from './homeSlice';
-import { useDispatch } from 'react-redux';
 
 export const Home=()=> {
   const dispatch = useDispatch();
