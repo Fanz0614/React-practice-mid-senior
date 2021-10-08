@@ -22,10 +22,16 @@ cd rea_test <br>
 npm install <br>
 npm start <br>
 
-Things that still working
+Further improvement
 ---------
 1. add custom hooks
 2. refactory using type script
-3. finish sorting feature 
+3. finish sort feature 
 4. optimize performance 
 5. any other interesting ideas
+
+
+Screen shot
+-----------
+![Alt text](https://raw.githubusercontent.com/Fanz0614/pic/master/react_practice-1.PNG)
+![Alt text](https://raw.githubusercontent.com/Fanz0614/pic/master/react_practice-2.PNG)
