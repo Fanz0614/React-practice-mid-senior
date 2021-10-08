@@ -25,5 +25,6 @@ Things need to be improved
 ---------
 1. add custom hooks
 2. refactory using type script
-3. finish list sorting feature
+3. finish sorting feature 
 4. optimize performance 
+5. any new interesting ideas
