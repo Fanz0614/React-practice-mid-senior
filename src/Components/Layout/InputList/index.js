@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { ListNameSelector } from '../ListFieldSelector';
 import { InputField } from '../../Shared/TextField';
@@ -25,15 +24,12 @@ export const InputList = ({ id, sortUp, sortDown, items }) => {
     if (e.target.name === 'firstdropdown') {
       const selectorValue = valueTag.find(
         (obj) => obj.field === e.target.value
-
       );
       setInitialDropdownState(selectorValue.value);
-      
-     
     }
   };
+  
   const handleClick = () => {
-    // debugger;
     dispatch(
       addOne({
         order: items.order,
@@ -44,7 +40,7 @@ export const InputList = ({ id, sortUp, sortDown, items }) => {
       })
     );
   };
-  //[{0},{1},{2},{3},{4}]
+
   return (
     <>
       <button onClick={sortUp}>^</button>
